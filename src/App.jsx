@@ -1,4 +1,3 @@
-// import {React} from 'react';
 import {useCallback, useEffect, useState} from 'react';
 import CalculatorDisplay from './components/calculator-display/calculator-display.component';
 import CalculatorPad from './components/calculator-pad/calculator-pad.component';
@@ -77,8 +76,6 @@ const App = () => {
     setCurrentOperator(()=>value)
   }, [collectedResult, currentOperator, displayValue])
 
-  
-
   const clearLastDigit = useCallback(() => {
     if (displayValue !== "0")
       if (displayValue.length === 1)
@@ -89,6 +86,7 @@ const App = () => {
   },[displayValue])
 
   const handleKeyDown = useCallback((e) => {
+    e.preventDefault();
     const keyString = e.key;
     
     if(KeyType.NUM.includes(keyString))
@@ -118,19 +116,6 @@ const App = () => {
       }
     }
   }, [handleClickNumericKey, handleClickFunctionKey, handleClickOperatorKey, clearLastDigit])
-
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown',handleKeyDown);
-    }, [handleKeyDown]);
-
-  useEffect(()=>{
-    if(expectsOperand)
-    {
-      setDisplayValue(()=>String(collectedResult));
-    }
-  }, [collectedResult, expectsOperand])
 
   const calculatorHandler = (eventType, value) => {
     switch(eventType) {
@@ -162,6 +147,18 @@ const App = () => {
       default:
     }
   }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown',handleKeyDown);
+    }, [handleKeyDown]);
+
+  useEffect(()=>{
+    if(expectsOperand)
+    {
+      setDisplayValue(()=>String(collectedResult));
+    }
+  }, [collectedResult, expectsOperand])
 
   return(
     <div className="app-root">

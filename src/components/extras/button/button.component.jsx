@@ -1,7 +1,6 @@
 const Button = (props) => {
-
-    const {type, label, value, className, onClick} = props;
-
+    const { type, label, value, className, onClick } = props;
+    
     const onclickHandler = () => {
         onClick(type, value);
     }

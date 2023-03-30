@@ -5,7 +5,7 @@
 .app-root{
   min-height: 100vh;
   min-width: 100vw;
-  background: hsl(25.33deg 100% 73.53%);
+  background: #ececec;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,43 +14,40 @@
 .calculator-container{
   display: flex;
   flex-direction: column;
-  /* padding-top: 50px; */
-  /* padding-bottom: 10px; */
-  width: 370px;
+  width: 376px;
   background-color: #ebebeb;
   border-radius: 15px;
   padding: 50px 5px 30px 5px;
+  box-shadow: 20px 15px 46px -8px rgba(168,168,168,0.75), 10px 15px 29px -14px rgba(255,255,255,0.64) inset;
+  -webkit-box-shadow: 20px 15px 46px -8px rgba(168,168,168,0.75), 10px 15px 29px -14px rgba(255,255,255,0.64) inset;
 }
 
 .calculator-screen{
-  flex: 1;
-  /* background-color: rgb(102, 99, 99); */
   text-align: right;
   padding: 10px 5px;
+  position: relative;
+  width: 360px;
+  height: 81px;
 }
 .calculator-screen div{
-  display: block;
-  font-size: 50px;
-  font-weight: bold;
-  text-align: right;
+  font-size: inherit;
+  padding: 0 5px;
+  position: absolute;
+  right: 0;
+  transform-origin: right;
   color: rgb(39, 38, 38);
-  width: 350px;
+  opacity: 0.6;
+  
 }
 
 .calculator-pad{
   display: flex;
   flex-direction: row;
-  /* min-height: 430px; */
-  /* gap: 5px; */
-  /* background: rgb(58, 58, 58); */
 }
 
 .calculator-pad button{
   width: 70px;
-  
-  /* border: 1px solid gray; */
   border: none;
-  /* border: none; */
   height: 70px;
   margin: 10px;
   background-color: #f0edee;
@@ -59,14 +56,11 @@
   color: rgba(0, 0, 0, 0.568);
   font-size: 1em;
   cursor: pointer;
+  outline: none;
   box-shadow: -2px 5px 8px -2px rgba(196,196,196,0.75);
 -webkit-box-shadow: -2px 5px 8px -2px rgba(196,196,196,0.75);
 -moz-box-shadow: -2px 5px 8px -2px rgba(196,196,196,0.75);
 }
-
-/* .calculator-pad button:hover{
-  background-color: rgb(199, 199, 199);
-} */
 .calculator-pad button:active{
   background-color: rgb(199, 199, 199);
   font-size:x-large;
@@ -92,11 +86,11 @@
   width: 160px!important;
 }
 
-/* button.function-key, button.operation-key {
-  color: #ec802e;
-} */
-
 .bg-orange{
   color: whitesmoke!important;
   background: #ec802e!important;
+}
+
+.btn-fx, .btn-opr{
+  background:rgb(221, 221, 221)!important;
 }
